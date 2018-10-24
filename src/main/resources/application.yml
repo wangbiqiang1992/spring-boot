@@ -1,0 +1,26 @@
+spring:
+  thymeleaf:
+    cache: false #这种一般用于测试情况下，生产环境还是需要缓存的
+  datasource:
+    url: jdbc:mysql://localhost:3306/test2
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    initial-size: 1
+    max-active: 10
+    min-idle: 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  aop:
+    prxy-target-class: true
+logging:
+  file: /logs
+  config:
+    classpath: logback-springboot.xml
+  level:
+    root: INFO
+    org:
+      hibernate:
+        type: trace
