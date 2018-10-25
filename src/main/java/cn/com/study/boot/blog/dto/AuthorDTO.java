@@ -12,4 +12,6 @@ public class AuthorDTO implements Serializable {
     private String name;
     private String type;
     private String city;
+    private String salary;
+    private String level;
 }

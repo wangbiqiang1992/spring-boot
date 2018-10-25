@@ -23,4 +23,8 @@ public class AuthorPO {
 
     @OneToOne(mappedBy = "author",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private AuthorDetailPO detail;
+
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "id",referencedColumnName = "ext_id")
+    private AuthorExtPO authorExt;
 }
