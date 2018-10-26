@@ -9,11 +9,11 @@ public interface CustomerService {
 
     List<CustomerPO> queryAllCustomer(CustomerPO customerPO);
 
-
     List<CustomerPO> readAllCustomer(CustomerPO customerPO);
-
 
     List<CustomerPO> findAllCustomer(QueryCustParam custParam);
 
     List<CustomerPO> searchAllCustomer(QueryCustParam custParam);
+
+    List<CustomerPO> seekAllCustomer(CustomerPO customerPO);
 }

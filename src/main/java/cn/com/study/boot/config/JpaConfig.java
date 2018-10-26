@@ -1,5 +1,7 @@
 package cn.com.study.boot.config;
 
+import cn.com.study.boot.common.jpa.dao.BaseRepository;
+import cn.com.study.boot.common.jpa.dao.BaseRepositoryImpl;
 import com.mysql.fabric.jdbc.FabricMySQLDataSource;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
@@ -12,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.concurrent.Executor;
 
-@EnableJpaRepositories(basePackages = "cn.com.study.**.dao")
+@EnableJpaRepositories(basePackages = "cn.com.study.**.dao",repositoryBaseClass = BaseRepositoryImpl.class)
 @EntityScan(basePackages = "cn.com.study.**.po")
 @EnableTransactionManagement
 public class JpaConfig {

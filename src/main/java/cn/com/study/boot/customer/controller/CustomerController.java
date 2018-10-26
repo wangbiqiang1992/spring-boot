@@ -47,4 +47,11 @@ public class CustomerController {
         QueryCustParam customerPO = JSONObject.parseObject(JSON.toJSONString(requestParam), QueryCustParam.class);
         return customerService.searchAllCustomer(customerPO);
     }
+
+    @RequestMapping("/seekAllUser")
+    public List<CustomerPO> seekAllAvailableCustomer(@RequestParam(required = false)
+                                                               Map<String, Object> requestParam) {
+        CustomerPO customerPO = JSONObject.parseObject(JSON.toJSONString(requestParam), CustomerPO.class);
+        return customerService.seekAllCustomer(customerPO);
+    }
 }

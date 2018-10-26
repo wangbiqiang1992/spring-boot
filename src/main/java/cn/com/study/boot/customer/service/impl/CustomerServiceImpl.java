@@ -1,5 +1,6 @@
 package cn.com.study.boot.customer.service.impl;
 
+import cn.com.study.boot.common.jpa.specification.BaseSpecification;
 import cn.com.study.boot.customer.dto.QueryCustParam;
 import cn.com.study.boot.customer.jpa.dao.CustomerDAO;
 import cn.com.study.boot.customer.jpa.po.CustomerPO;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+
+import static cn.com.study.boot.common.jpa.specification.BaseSpecification.*;
 
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
@@ -55,5 +58,14 @@ public class CustomerServiceImpl implements CustomerService {
         return customerDAO.findAll(specification);
     }
 
+    @Override
+    public List<CustomerPO> seekAllCustomer(CustomerPO customerPO) {
+        BaseSpecification<CustomerPO> specification = new BaseSpecification<CustomerPO>().and(
+                Cnd.eq("name",customerPO.getName()),
+                Cnd.like("aliasName",customerPO.getAliasName()))
+                .or(Cnd.eq("level",customerPO.getLevel()))
+                .asc("id");
+        return customerDAO.findAll(specification);
+    }
 
 }
