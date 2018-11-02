@@ -9,6 +9,7 @@ spring:
     initial-size: 1
     max-active: 10
     min-idle: 1
+    type: com.alibaba.druid.pool.DruidDataSource
   jpa:
     hibernate:
       ddl-auto: update

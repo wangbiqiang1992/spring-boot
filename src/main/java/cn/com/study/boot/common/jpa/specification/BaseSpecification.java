@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 抄自书中
  * 自定义的Specification的基类实现，没有包括日期类，还有各种其它操作符
  * (ps 拓展中)
  * @param <T>
