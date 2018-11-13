@@ -2,7 +2,7 @@ spring:
   datasource:
     druid:
       # 起始
-      url: jdbc:mysql://localhost:3306/test2
+      url: jdbc:mysql://localhost:3306/test2?useSSL=false
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: 123456
