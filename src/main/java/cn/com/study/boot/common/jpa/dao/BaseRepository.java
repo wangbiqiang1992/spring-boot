@@ -8,6 +8,10 @@ import java.io.Serializable;
 
 @NoRepositoryBean
 public interface BaseRepository <T,ID extends Serializable> extends JpaRepository<T,ID> {
-
+    /**
+     * 计算总数的方法
+     * @param spec
+     * @return
+     */
     Long countAll(Specification<T> spec);
 }
