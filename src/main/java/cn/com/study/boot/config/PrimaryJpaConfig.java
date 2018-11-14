@@ -36,14 +36,11 @@ import javax.sql.DataSource;
 @EnableConfigurationProperties(JpaProperties.class)
 public class PrimaryJpaConfig {
 
-    private final DataSource primaryDS;
-    private final JpaProperties jpaProperties;
-
     @Autowired
-    public PrimaryJpaConfig(JpaProperties jpaProperties, @Qualifier("primaryDS") DataSource primaryDS) {
-        this.jpaProperties = jpaProperties;
-        this.primaryDS = primaryDS;
-    }
+    private DataSource primaryDS;
+    @Autowired
+    private JpaProperties jpaProperties;
+
 
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")

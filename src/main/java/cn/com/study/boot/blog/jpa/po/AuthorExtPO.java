@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Administrator
+ */
 @Entity
 @Table(name = "A_AUTHOR_EXT")
 @Data

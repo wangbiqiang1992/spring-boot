@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 一下配置都可以在properties文件中配置
+ * @author Administrator
  */
 @Configuration
 public class DruidConfig {

@@ -7,6 +7,9 @@ import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
 
+/**
+ * @author Administrator
+ */
 @Entity
 @Data
 @Table(name = "A_AUTHOR_DETAIL")
