@@ -2,7 +2,9 @@ package cn.com.study.boot.employee.controller;
 
 import cn.com.study.boot.employee.jpa.dao.EmployeeDAO;
 import cn.com.study.boot.employee.jpa.po.EmployeePO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
@@ -18,6 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * @author Administrator
+ */
+@Slf4j
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -35,7 +41,9 @@ public class EmployeeController {
     private HashOperations<String,String,Object> hashOps;
 
     @RequestMapping("/{id}")
+    @Cacheable(value = "employee")
     public EmployeePO getEmployeeInfo(@PathVariable("id") EmployeePO employeePO){
+        log.info("find employee id:{}",employeePO.getEmpId());
         return employeePO;
     }
 

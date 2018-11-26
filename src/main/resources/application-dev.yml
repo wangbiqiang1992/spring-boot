@@ -11,7 +11,7 @@ spring:
   datasource:
     druid:
       # 起始
-      url: jdbc:mysql://localhost:3306/test2?useSSL=false
+      url: jdbc:mysql://localhost:3306/test2
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: 123456
@@ -22,3 +22,6 @@ spring:
       validation-query: select 1
       test-while-idle: true
       time-between-eviction-runs-millis: 60000
+  cache:
+    type: redis
+    cache-names: employee,customer

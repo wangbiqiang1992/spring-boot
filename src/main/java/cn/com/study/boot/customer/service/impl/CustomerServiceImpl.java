@@ -5,6 +5,7 @@ import cn.com.study.boot.customer.dto.QueryCustParam;
 import cn.com.study.boot.customer.jpa.dao.CustomerDAO;
 import cn.com.study.boot.customer.jpa.po.CustomerPO;
 import cn.com.study.boot.customer.service.CustomerService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers;
@@ -17,6 +18,9 @@ import java.util.List;
 
 import static cn.com.study.boot.common.jpa.specification.BaseSpecification.*;
 
+/**
+ * @author Administrator
+ */
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
 
@@ -30,6 +34,7 @@ public class CustomerServiceImpl implements CustomerService {
      * @return
      */
     @Override
+    @Cacheable(value = "customer",key = "'QUERY_ALL_CUSTOMER_BY_NAME_AND_ALIASNAME_'+#customerPO.aliasName+'_'+#customerPO.name" )
     public List<CustomerPO> queryAllCustomer(CustomerPO customerPO) {
         ExampleMatcher matcher = ExampleMatcher.matching()
                 .withMatcher("aliasName", GenericPropertyMatchers.contains())

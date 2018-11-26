@@ -33,6 +33,8 @@ import javax.sql.DataSource;
         basePackages = "cn.com.study.**.dao"
 )
 @EnableTransactionManagement
+/*@EnableConfigurationProperties注解是用来开启对@ConfigurationProperties注解配置Bean的支持。
+也就是@EnableConfigurationProperties注解告诉Spring Boot 使能支持@ConfigurationProperties*/
 @EnableConfigurationProperties(JpaProperties.class)
 public class PrimaryJpaConfig {
 
